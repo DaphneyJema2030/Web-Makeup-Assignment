@@ -13,7 +13,7 @@ include 'process.php';
 </head>
 <body>
     <div class="header">
-        Sign In
+        Sign Up
     </div>
 
     <form action="" method="post">
@@ -28,15 +28,15 @@ include 'process.php';
     <input type="password" name="password" placeholder="Enter your password" required />
     <br>
     <div class="selectors">
-     <label><input type="radio" name="usertype" value="user" required> User</label>
+     <label><input type="radio" name="usertype" value="user" required>Super User</label>
      <br>
-    <label><input type="radio" name="usertype" value="author"> Author</label>
+    <label><input type="radio" name="usertype" value="author">Author</label>
     <br>
-    <label> <input type="radio" name="usertype" value="admin"> Admin</label>
+    <label> <input type="radio" name="usertype" value="admin">Admin</label>
     <br>
     </div>
 
-    <input type="submit" name="submit" value="Sign In"/>
+    <input type="submit" name="submit" value="Sign Up"/>
 
 </form>
 
