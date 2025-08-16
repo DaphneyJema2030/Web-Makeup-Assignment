@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
 
     // Execute
     if ($stmt->execute()) {
-        header("Location: index.php?status=success");
+        header("Location: profile.php?statindexus=success");
         exit;
     } else {
         echo "Error: " . $stmt->error;
@@ -41,15 +41,5 @@ if (isset($_POST['submit'])) {
 } else {
     echo "No data submitted.";
 }
-
-
-//
-/*$sql="Select * from `dbt`";
-$result=mysqli_query($mysqli,$sql);
-if($result){
-    $row=mysqli_fetch_assoc($result);
-    echo $row['fullname'];
-}    
-*/
 
 ?>
