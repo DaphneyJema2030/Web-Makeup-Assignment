@@ -5,12 +5,12 @@ session_start();
 $error = "";
 
 if (isset($_POST['submit'])) {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+    $user_Name = trim($_POST['username']);
+    $Password = trim($_POST['password']);
 
     // Check user in database
     $stmt = $mysqli->prepare("SELECT * FROM users WHERE User_Name = ?");
-    $stmt->bind_param("s", $username);
+    $stmt->bind_param("s", $User_Name);
     $stmt->execute();
     $result = $stmt->get_result();
 
