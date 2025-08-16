@@ -1,3 +1,8 @@
+<?php
+include 'connect.php';
+include 'process.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,19 +17,27 @@
     </div>
 
     <form action="" method="post">
-    <input type="text" placeholder="Enter your fullname" required/>
+    <input type="text" name="fullname" placeholder="Enter your fullname" required/>
     <br>
-    <input type="text" placeholder="Enter your email" required/>
+    <input type="text" name="email" placeholder="Enter your email" required/>
     <br>
-    <input type="tel" placeholder="Enter your phone number" required/>
+    <input type="tel" name="tel" placeholder="Enter your phone number" required/>
     <br>
-    <input type="text" placeholder="Enter your username" required/>
+    <input type="text" name="username" placeholder="Enter your username" required/>
     <br>
-    <input type="password" placeholder="Enter your password" required />
+    <input type="password" name="password" placeholder="Enter your password" required />
     <br>
-<br>
-    <input type="submit" value="Sign In" />
-    
+    <div class="selectors">
+     <label><input type="radio" name="usertype" value="user" required> User</label>
+     <br>
+    <label><input type="radio" name="usertype" value="author"> Author</label>
+    <br>
+    <label> <input type="radio" name="usertype" value="admin"> Admin</label>
+    <br>
+    </div>
+
+    <input type="submit" name="submit" value="Sign In"/>
+
 </form>
 
 
