@@ -1,9 +1,8 @@
 <?php
 require 'connect.php';
-date_default_timezone_set('Africa/Nairobi');
-
 
 if (isset($_GET['updateid'])) {
+    
     $userId = intval($_GET['updateid']);
 
     // form filed
