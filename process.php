@@ -1,6 +1,5 @@
 <?php
 require 'connect.php';
-date_default_timezone_set('Africa/Nairobi');
 
 if (isset($_POST['submit'])) {
     // Retrieve form data
@@ -31,7 +30,7 @@ if (isset($_POST['submit'])) {
 
     // Execute
     if ($stmt->execute()) {
-        header("Location: profile.php?statindexus=success");
+        header("Location: login.php?statindexus=success");
         exit;
     } else {
         echo "Error: " . $stmt->error;

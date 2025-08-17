@@ -1,5 +1,7 @@
 <?php
 require 'connect.php';
+  
+
 session_start();
 
 $error = "";
@@ -8,16 +10,15 @@ if (isset($_POST['submit'])) {
     $user_Name = trim($_POST['username']);
     $Password = trim($_POST['password']);
 
-    // Check user in database
     $stmt = $mysqli->prepare("SELECT * FROM users WHERE User_Name = ?");
-    $stmt->bind_param("s", $User_Name);
+    $stmt->bind_param("s", $user_Name);
     $stmt->execute();
     $result = $stmt->get_result();
-
-    if ($result && $result->num_rows === 1) {
+    
+    if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
 
-        if (password_verify($password, $user['Password'])) {
+        if (password_verify($Password, $user['Password'])) {
             // Save Info
             $_SESSION['userId']   = $user['userId'];
             $_SESSION['User_Name'] = $user['User_Name'];
@@ -28,10 +29,12 @@ if (isset($_POST['submit'])) {
                 header("Location: admin_dashboard.php");
             } elseif ($user['UserType'] === 'author') {
                 header("Location: author_dashboard.php");
-            } elseif ($user['UserType'] === 'users') {
+            } elseif ($user['UserType'] === 'user') {
+                ob_clean();
                 header("Location: dashboard.php");
             } else {
-                header("Location: profile.php"); // fallback
+                ob_clean();
+                header("Location: profile.php"); 
             }
             exit();
         } else {
